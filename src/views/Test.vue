@@ -51,13 +51,13 @@
       <el-header style="text-align: right; font-size: 18px">
         <el-dropdown>
           <span>
-            下拉菜单
+            {{ pageName ? pageName : '下拉菜单'}}
             <i style="margin-right: 30px"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>选项1</el-dropdown-item>
-            <el-dropdown-item>选项2</el-dropdown-item>
-            <el-dropdown-item>选项3</el-dropdown-item>
+            <el-dropdown-item>{{pageName}}</el-dropdown-item>
+            <el-dropdown-item>{{pageName}}</el-dropdown-item>
+            <el-dropdown-item>{{pageName}}</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </el-header>
@@ -74,6 +74,7 @@
 export default {
   data() {
     return {
+      pageName: "",
       isCollapse: false
     };
   },
@@ -96,6 +97,19 @@ export default {
     handleClose(key, keyPath) {
       console.log(key, keyPath);
     }
+  },
+  watch: {
+    $route() {
+      if(this.$route.name === 'router1') {
+        this.pageName = 'router1'
+      }
+      if(this.$route.name === 'router2') {
+        this.pageName = 'router2'
+      }
+      if(this.$route.name === 'router3') {
+        this.pageName = 'router3'
+      }
+    }  
   }
 };
 </script>

@@ -12,9 +12,9 @@ export default new Router({
       component: () => import('./views/Test.vue'),
       redirect: "/router1",
       children: [
-        { path: '/router1', component: () => import('./views/Router1.vue'), meta: { keepAlive: true }, },
-        { path: '/router2', component: () => import('./views/Router2.vue'), meta: { keepAlive: true }, },
-        { path: '/router3', component: () => import('./views/Router3.vue'), meta: { keepAlive: true }, },
+        { path: '/router1', name: 'router1', component: () => import('./views/Router1.vue'), meta: { keepAlive: true }, },
+        { path: '/router2', name: 'router2', component: () => import('./views/Router2.vue'), meta: { keepAlive: true }, },
+        { path: '/router3', name: 'router3', component: () => import('./views/Router3.vue'), meta: { keepAlive: true }, },
       ]
     },
   ]
